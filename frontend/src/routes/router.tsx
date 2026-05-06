@@ -5,6 +5,7 @@ import PresentationLayout from '../modules/presentation/layouts';
 
 export const HomePage = lazy(() => import('../modules/presentation/pages/home'));
 export const TeamPage = lazy(() => import('../modules/presentation/pages/team'));
+export const ChangelogPage = lazy(() => import('../modules/presentation/pages/changelog'));
 export const Page404 = lazy(() => import('../modules/core/pages/page-not-found'));
 
 import EditorPage from '../modules/pricing-editor/pages/pricing2yaml-editor';
@@ -43,6 +44,7 @@ export default function Router() {
         { element: <CardPage />, path: "/pricings/:owner/:name" },
         // { element: <LegacyPricingCard />, path: "/pricings/card" },
         { element: <TeamPage />, path: "/team" },
+        { element: <ChangelogPage />, path: "/changelog"},
         { element: <ResearchPage />, path: "/research" },
         { element: <ContributionsPage />, path: "/contributions" },
         { element: <CollectionsListPage />, path: "/pricings/collections" },

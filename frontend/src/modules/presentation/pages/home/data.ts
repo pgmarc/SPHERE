@@ -56,6 +56,7 @@ export const NAV_ITEMS: NavItem[] = [
   },
   { label: 'Team', to: '/team' },
   { label: 'Research', to: '/research' },
+  { label: 'Changelog', to: '/changelog'},
 ];
 
 export const SPHERE_TOOLS: ToolItem[] = [
