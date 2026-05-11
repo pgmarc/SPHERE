@@ -76,6 +76,14 @@ export function parsePricingIntelligenceChangelog() {
           mcp.fixes.push(commit_message);
           break;
         }
+        case 'features_csp': {
+          csp.features.push(commit_message);
+          break;
+        }
+        case 'fixes_csp': {
+          csp.fixes.push(commit_message);
+          break;
+        }
         default:
           continue;
       }
