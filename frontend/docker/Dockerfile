@@ -25,7 +25,7 @@ COPY ./index.html .
 COPY ./.env.testing .env
 
 # Build your application
-RUN pnpm run build
+RUN pnpm start
 RUN pnpm add -D serve
 
 # Specify the command to start the server
