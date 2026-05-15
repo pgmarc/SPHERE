@@ -1,5 +1,9 @@
 # Use an official Node.js runtime as the base image
-FROM node:21.1-slim
+FROM node:22.22-slim
+
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+RUN corepack enable
 
 # Install minizinc
 RUN apt-get update && apt-get install -y minizinc && apt-get clean
@@ -7,15 +11,11 @@ RUN apt-get update && apt-get install -y minizinc && apt-get clean
 # Set the working directory in the container
 WORKDIR /usr/src/server
 
-# Install pnpm globally
-RUN npm install -g pnpm
-
 # Copy package.json and ./pnpm-lock.yaml to the container
-COPY ./package.json .
-COPY ./pnpm-lock.yaml .
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml .
 
 # Install Node.js dependencies
-RUN pnpm install 
+RUN pnpm install --frozen-lockfile
 
 # Copy the rest of the application source code to the container
 COPY ./src/main ./src/main
