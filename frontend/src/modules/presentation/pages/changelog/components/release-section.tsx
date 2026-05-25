@@ -1,5 +1,5 @@
 import ReleaseChanges from "./release-changes";
-import { Change, hasChanges } from "./util";
+import { Change, hasChanges } from "../parser";
 
 interface ReleaseSectionProps {
   name: string;

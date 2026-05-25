@@ -1,4 +1,4 @@
-import { Change } from './util';
+import type { Change } from '../parser';
 
 interface ReleaseChangesProps {
   name: string;
@@ -21,7 +21,7 @@ export default function ReleaseChanges({ name, changes }: ReleaseChangesProps) {
       <div className="overflow-hidden">
         <ul className="mt-4 space-y-3 pl-5">
           {changes.map(change => (
-            <li key={change.commit_id} className="list-disc text-base leading-7 text-neutral-600">
+            <li key={change.id} className="list-disc text-base leading-7 text-neutral-600">
               {change.description}
             </li>
           ))}

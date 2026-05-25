@@ -1,9 +1,11 @@
 import { useState } from 'react';
-import PricingIntelligenceChangelog from './pricing-intelligence-changelog';
-import StandardChangelog from './standard-changelog';
+import { getChangelogParser } from './parser';
+import Changelog from './components/changelog';
 
 export default function ChangelogPage() {
   const [tab, setTab] = useState<string>('pricing-intelligence');
+  const parser = getChangelogParser(tab);
+  const releases = parser.parse();
 
   const handleTabChange = (tab: string) => setTab(tab);
 
@@ -32,8 +34,8 @@ export default function ChangelogPage() {
         </ul>
       </div>
       <div className="col-start-2">
-        {tab === 'pricing-intelligence' && <PricingIntelligenceChangelog />}
-        {tab === 'sphere' && <StandardChangelog />}
+        {tab === 'pricing-intelligence' && <Changelog releases={releases} />}
+        {tab === 'sphere' && <Changelog releases={releases} />}
       </div>
     </section>
   );
